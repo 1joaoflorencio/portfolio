@@ -102,22 +102,30 @@ document.addEventListener('DOMContentLoaded', () => {
             .fromTo('.scroll-cue', { opacity: 0 }, { opacity: 1, duration: 0.6 }, '-=0.4');
     };
 
+    /* Guarda de idempotência: o timeout de segurança e o onComplete da timeline
+       podem disparar os dois. Numa aba em segundo plano o rAF congela — a
+       timeline do GSAP trava, mas o setTimeout dispara mesmo assim; ao voltar
+       para a aba a timeline termina e a intro tocava uma segunda vez por cima. */
+    let introConcluida = false;
+    const concluirIntro = () => {
+        if (introConcluida) return;
+        introConcluida = true;
+        hidePreloader();
+        playHeroIntro();
+    };
+
     if (prefersReducedMotion) {
         hidePreloader();
     } else if (preloader) {
         gsap.set('.nav-inner, .hero-eyebrow, .hero-title, .hero-subtitle, .hero-actions, .scroll-cue', { opacity: 0 });
         document.body.classList.add('lock-scroll');
         if (lenis) lenis.stop();
-        const safety = setTimeout(() => {
-            hidePreloader();
-            playHeroIntro();
-        }, 4000);
+        const safety = setTimeout(concluirIntro, 4000);
 
         gsap.timeline({
             onComplete: () => {
                 clearTimeout(safety);
-                hidePreloader();
-                playHeroIntro();
+                concluirIntro();
             },
         })
             .from('.preloader-inner', { opacity: 0, y: 10, duration: 0.5, ease: 'power2.out' })

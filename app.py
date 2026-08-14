@@ -7,13 +7,16 @@ projetos = [
         "titulo": "CoreAgenda — SaaS de Agendamentos",
         "descricao": "Plataforma multi-tenant para gestão de agendamentos de clínicas e barbearias: integração com Google Calendar via OAuth, lembretes automáticos por WhatsApp e painel administrativo com métricas de atendimento.",
         "tags": ["Next.js", "TypeScript", "Prisma", "Supabase", "Tailwind CSS", "Google Calendar API", "Evolution API", "shadcn/ui"],
-        "link": "https://github.com/1joaoflorencio/agendamento"
+        "site": "https://coreagenda.vercel.app"
     },
     {
         "titulo": "Hambúrgueria do Zé — Delivery + Bot",
         "descricao": "Site de pedidos com pagamento integrado via Mercado Pago e painel administrativo para acompanhar e atualizar o status de cada pedido em tempo real. Focado em otimizar o fluxo de recebimento da loja e entregar uma interface rápida e atrativa para o cliente final.",
         "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Mercado Pago", "Evolution API", "Leaflet", "Framer Motion"],
-        "link": "https://github.com/1joaoflorencio/bot-delivery-clean"
+        # Provisorio: o deploy ainda nao existe, mas este e o nome de projeto
+        # que o proprio codigo do delivery ja usa. Ao publicar com esse nome,
+        # o link passa a funcionar sem precisar mexer aqui.
+        "site": "https://burguerdelivery.vercel.app"
     }
 ]
 

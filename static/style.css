@@ -742,22 +742,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* Sobrou só o aviso de copyright: centralizado lê como decisão,
+       encostado à esquerda lê como algo que caiu fora. */
+    justify-content: center;
     max-width: 1100px;
     margin: 0 auto;
     padding: 2rem 1.5rem 3rem;
     color: var(--text-dim);
     font-size: 0.9rem;
     border-top: 1px solid var(--border);
-}
-
-.site-footer a {
-    color: var(--text-dim);
-    transition: color var(--transition);
-}
-
-.site-footer a:hover {
-    color: var(--text);
 }
 
 /* ---------- Keyframes ---------- */
